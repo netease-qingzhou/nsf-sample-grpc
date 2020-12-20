@@ -1,0 +1,11 @@
+server:
+  port: 9306
+grpc:
+  server:
+    port: 9307
+spring:
+  application:
+    name: nsf-demo-stock-provider-grpc
+  sleuth:
+    sampler:
+      probability: 1

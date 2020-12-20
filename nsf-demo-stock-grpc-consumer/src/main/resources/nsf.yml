@@ -1,0 +1,17 @@
+nsf:
+  type: grpc
+  version: '2.0'
+  nsfServer: 'http://nsf-server.qa-yl.service.163.org'
+  application:
+    name: GRPCTestConsumer
+    version: 0.0.1
+    projectCode: project1
+    envCode: prod
+    zone: default
+    group: default
+    tags: []
+  authority:
+    accessKey: 0f40b0a9a9a746ceaed6a75c0e98602a
+    secretKey: 3a29f24088c44d308f22cbdfb81e514b
+  manager:
+    patterns: []

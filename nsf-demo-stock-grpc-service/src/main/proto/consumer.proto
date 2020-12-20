@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.netease.cloud.nsf.demo.stock.service";
+option java_outer_classname = "ConsumerService";
+
+// The greeting service definition.
+service Consumer {
+    // Sends a greeting
+    rpc Echo (ConsumerRequest) returns (ConsumerReply) {}
+    rpc EchoAsync (ConsumerRequest) returns (ConsumerReply) {}
+}
+
+// The request message containing the user's name.
+message ConsumerRequest {
+    string name = 1;
+}
+
+// The response message containing the greetings
+message ConsumerReply {
+    string message = 1;
+}

@@ -1,0 +1,11 @@
+grpc:
+  client:
+    GRPCTestProvider:
+      enableKeepAlive: false
+      keepAliveWithoutCalls: false
+      negotiationType: plaintext
+      defaultLoadBalancingPolicy: round_robin
+    GRPCTestEntry:
+      enableKeepAlive: false
+      keepAliveWithoutCalls: false
+      negotiationType: plaintext

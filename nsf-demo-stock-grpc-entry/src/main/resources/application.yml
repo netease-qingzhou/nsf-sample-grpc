@@ -1,0 +1,18 @@
+server:
+  port: 9326
+
+spring:
+  application:
+    name: nsf-demo-stock-entry-grpc
+  sleuth:
+    sampler:
+      probability: 1
+
+grpc:
+  server:
+    port: 9327
+  client:
+    nsf-demo-stock-consumer-grpc:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext

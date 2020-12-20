@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.netease.cloud.nsf.demo.stock.service";
+option java_outer_classname = "EntryService";
+
+// The greeting service definition.
+service Entry {
+    // Sends a greeting
+    rpc Echo (EchoNum) returns (Reply) {}
+    rpc EchoAsync (EchoNum) returns (Reply) {}
+}
+
+// The request message containing the user's name.
+message EchoNum {
+    int32 time = 1;
+}
+
+// The response message containing the greetings
+message Reply {
+    string message = 1;
+}

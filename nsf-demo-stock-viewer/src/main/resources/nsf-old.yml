@@ -1,0 +1,52 @@
+nsf:
+  #  基本信息
+  application:
+    name: nsf-demo-stock-viewer
+    version: 0.0.1
+    desc: this is service description
+
+  # agent配置
+  server:
+    enable: true # 是否启用NSF Server控制中心, 默认关闭
+    skey: 123
+    address: grpc://10.182.2.108:8980
+
+  #  注册中心
+  registry:
+    enable: true # 是否启用eureka注册发现服务, 默认关闭
+    address: http://10.182.2.108:8877/eureka/
+
+  # 应用监控
+  metrics:
+    enable: true # 是否启用hystrix的metrics应用监控
+
+  # 方法配置
+  manager:
+    patterns:
+      - className: com.netease.cloud.nsf.demo.stock.viewer.web.service.impl.*
+
+  # 地址-服务名对应关系配置
+  relations:
+    services:
+      - address: http://localhost:9001
+        service: http://nsf-demo-stock-provider
+      - address: http://localhost:9002
+        service: http://nsf-demo-stock-advisor
+
+    versions:
+      - service: nsf-demo-stock-provider
+        version: 0.0.1
+      - service: nsf-demo-stock-advisor
+        version: 0.0.1
+
+  # 服务鉴权配置
+  authority:
+    devMode: true
+    #是否开启外部访问免鉴权
+    enable: false
+    #认证中心地址
+    server: http://10.182.2.108:10101
+    #访问重试次数(仅403状态会重试，默认为 3 )
+    retry: 3
+    accessKey: 3d48cc94bf77404cb59c6f918e984ade
+    secretKey: fcbf3b7c7a034dd2ba265c461cbac918
