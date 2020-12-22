@@ -14,4 +14,12 @@ public class PanelController {
         return new HttpResponse(LogManager.logs());
     }
 
+    @GetMapping("/logs/clear")
+    @ResponseBody
+    public HttpResponse clearLogs() {
+        LogManager.clear();
+        return new HttpResponse("clear logs success");
+    }
+
+
 }
