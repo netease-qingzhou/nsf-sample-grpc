@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: nsf-demo-stock-entry-grpc
+    name: nsf-demo-stock-grpc-entry
   sleuth:
     sampler:
       probability: 1

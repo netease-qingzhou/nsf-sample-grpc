@@ -5,7 +5,7 @@ grpc:
     port: 9307
 spring:
   application:
-    name: nsf-demo-stock-provider-grpc
+    name: nsf-demo-stock-grpc-provider
   sleuth:
     sampler:
       probability: 1
