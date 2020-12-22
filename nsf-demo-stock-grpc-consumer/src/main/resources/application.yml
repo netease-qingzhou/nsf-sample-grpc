@@ -12,7 +12,7 @@ grpc:
   server:
     port: 9317
   client:
-    nsf-demo-stock-provider-grpc:
+    nsf-demo-stock-grpc-provider:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext

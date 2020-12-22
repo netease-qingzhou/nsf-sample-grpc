@@ -40,10 +40,10 @@ public class ConsumerService extends ConsumerGrpc.ConsumerImplBase {
         }
     }
 
-    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-provider")
     private EchoGrpc.EchoBlockingStub echoBlockingStub;
 
-    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-provider")
     private EchoGrpc.EchoStub echoStub;
 
     @Override

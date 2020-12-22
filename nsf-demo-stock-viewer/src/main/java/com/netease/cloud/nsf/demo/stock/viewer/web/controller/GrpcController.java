@@ -22,13 +22,13 @@ import java.util.UUID;
 public class GrpcController implements EnvironmentAware {
     public static Environment environment;
 
-    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-provider")
     private SimpleGrpc.SimpleBlockingStub simpleStub;
 
-    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-provider")
     private EchoGrpc.EchoBlockingStub echoStub;
 
-    @GrpcClient(value = "nsf-demo-stock-entry-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-entry")
     private EntryGrpc.EntryBlockingStub entryBlockingStub;
 
 

@@ -43,10 +43,10 @@ public class EntryService extends EntryGrpc.EntryImplBase {
         }
     }
 
-    @GrpcClient(value = "nsf-demo-stock-consumer-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-consumer")
     private ConsumerGrpc.ConsumerBlockingStub consumerBlockingStub;
 
-    @GrpcClient(value = "nsf-demo-stock-consumer-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-consumer")
     private ConsumerGrpc.ConsumerStub consumerStub;
 
     @Override
