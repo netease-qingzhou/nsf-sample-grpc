@@ -1,17 +1,29 @@
 nsf:
+  version: 2.0
+  nsfServer: 10.182.2.108:8866
   type: grpc
-  version: '2.0'
-  nsfServer: 'http://nsf-server.qa-yl.service.163.org'
+
   application:
-    name: GRPCTestConsumer
+    name: nsf-demo-stock-provider-grpc
     version: 0.0.1
-    projectCode: project1
-    envCode: prod
-    zone: default
-    group: default
-    tags: []
-  authority:
-    accessKey: 0f40b0a9a9a746ceaed6a75c0e98602a
-    secretKey: 3a29f24088c44d308f22cbdfb81e514b
+    zone: regionA
+    desc: debug
+    projectCode: nsfproject
+
   manager:
-    patterns: []
+    patterns:
+      - className: com.tg.debug.TestService
+
+  config:
+    enable: false          #启用Apollo
+    appId: grpc-client      #对应配置中心的app.id（必须配置）
+
+  # 应用监控
+  metrics:
+    enable: true # 是否启用hystrix的metrics应用监控
+
+  # 服务鉴权配置
+  authority:
+    enable: true
+    accessKey: 22603105747c4aceb8bca2e6a05841fd
+    secretKey: 6e5c3944c42344838c917a8082811f4a

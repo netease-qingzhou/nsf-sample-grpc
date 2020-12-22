@@ -7,10 +7,9 @@
         <groupId>com.netease.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <packaging>war</packaging>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nsf-demo-stock-grpc-provider</artifactId>
+    <artifactId>nsf-demo-stock-grpc-entry</artifactId>
 
     <dependencies>
         <dependency>
@@ -32,6 +31,17 @@
             <groupId>net.devh</groupId>
             <artifactId>grpc-server-spring-boot-starter</artifactId>
             <version>${grpc.spring.boot.starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-client-spring-boot-starter</artifactId>
+            <version>${grpc.spring.boot.starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
@@ -64,12 +74,13 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <fork>true</fork>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

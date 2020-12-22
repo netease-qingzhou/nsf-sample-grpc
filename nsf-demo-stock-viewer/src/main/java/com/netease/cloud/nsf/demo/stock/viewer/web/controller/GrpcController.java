@@ -5,7 +5,7 @@ import com.netease.cloud.nsf.demo.stock.viewer.web.entity.HttpResponse;
 import com.netease.cloud.nsf.demo.stock.viewer.web.manager.LogManager;
 import io.grpc.StatusRuntimeException;
 import net.devh.boot.grpc.client.inject.GrpcClient;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -19,18 +19,16 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/grpc")
-//@ConditionalOnProperty(name="grpc", havingValue="true")
 public class GrpcController implements EnvironmentAware {
     public static Environment environment;
 
-    @GrpcClient(value = "GRPCTestProvider")
+    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
     private SimpleGrpc.SimpleBlockingStub simpleStub;
 
-    @GrpcClient(value = "GRPCTestProvider")
+    @GrpcClient(value = "nsf-demo-stock-provider-grpc")
     private EchoGrpc.EchoBlockingStub echoStub;
 
-
-    @GrpcClient(value = "GRPCTestEntry")
+    @GrpcClient(value = "nsf-demo-stock-entry-grpc")
     private EntryGrpc.EntryBlockingStub entryBlockingStub;
 
 
@@ -39,15 +37,25 @@ public class GrpcController implements EnvironmentAware {
         return "grpc";
     }
 
+    @Value("${spring.application.name}")
+    private String serviceName;
+
+    @Value("${test:test}")
+    private String user;
+
+    @GetMapping("/hello")
+    public String sayHello(String str) {
+        return String.format("Hello, %s,%s", serviceName, user);
+    }
+
     @GetMapping("/exception")
     @ResponseBody
     public String exception(String msg) {
-        if(!StringUtils.isEmpty(msg)){
+        if (!StringUtils.isEmpty(msg)) {
             throw new RuntimeException(msg);
         }
         return "no exception";
     }
-
 
     @GetMapping(value = "/test", produces = "application/json")
     @ResponseBody
