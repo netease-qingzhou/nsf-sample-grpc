@@ -15,7 +15,7 @@
 	</parent>
 
 	<modules>
-		<module>nsf-demo-stock-viewer</module>
+		<module>nsf-demo-stock-grpc-viewer</module>
 		<module>nsf-demo-stock-grpc-provider</module>
 		<module>nsf-demo-stock-grpc-consumer</module>
 		<module>nsf-demo-stock-grpc-entry</module>
