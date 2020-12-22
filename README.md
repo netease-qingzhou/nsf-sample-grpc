@@ -1,10 +1,10 @@
 提供了四个服务 ：
-nsf-demo-stock-viewer-grpc
-nsf-demo-stock-entry-grpc
-nsf-demo-stock-consumer-grpc
-nsf-demo-stock-provider-grpc
+nsf-demo-stock-grpc-viewer-grpc
+nsf-demo-stock-grpc-entry
+nsf-demo-stock-grpc-consumer
+nsf-demo-stock-grpc-provider
 
-调用关系为 view -> entry -> consumer -> provider
+调用关系为 viewer -> entry -> consumer -> provider
 
 
 
@@ -16,7 +16,7 @@ GrpcController.java
 
 ```
     //改为自己需要的服务名
-    @GrpcClient(value = "nsf-demo-stock-entry-grpc")
+    @GrpcClient(value = "nsf-demo-stock-grpc-entry")
     private EntryGrpc.EntryBlockingStub entryBlockingStub;
 
 ```
@@ -26,7 +26,7 @@ application.yml
 ```
 grpc:
   client:
-    nsf-demo-stock-entry-grpc: //修改服务名
+    nsf-demo-stock-grpc-entry: //修改服务名
       enableKeepAlive: false
       keepAliveWithoutCalls: false
       negotiationType: plaintext
